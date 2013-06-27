@@ -545,6 +545,26 @@ AVAILABLE_MODULES = [
         ]
     },
     {
+        'name': 'sms',
+        'label': 'SMS',
+        'description': 'Send texts from Maraschino',
+        'static': True,
+        'poll': 60,
+        'delay': 0,
+        'settings': [
+                {
+                'key': 'sms_username',
+                'value': '',
+                'description': 'Phone number',
+                },
+                {
+                'key': 'sms_password',
+                'value': '',
+                'description': 'SMS password',
+                },
+        ]
+    },
+    {
         'name': 'transmission',
         'label': 'Transmission',
         'description': 'Shows you information about your Transmission downloads.',
