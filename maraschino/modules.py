@@ -565,6 +565,36 @@ AVAILABLE_MODULES = [
         ]
     },
     {
+        'name': 'samsung_tvremote',
+        'label': 'Samsung tv remote',
+        'description': 'Control your samsung tv',
+        'static': True,
+        'poll': 0,
+        'delay': 0,
+        'settings': [
+                {
+                'key': 'samsung_tvremote_tvip',
+                'value': '',
+                'description': 'Your tvs ipadress',
+                },
+                {
+                'key': 'samsung_tvremote_myip',
+                'value': '',
+                'description': 'Computer running Maraschino ipadress',
+                },
+                {
+                'key': 'samsung_tvremote_mymac',
+                'value': '',
+                'description': 'Computer running Marachino macadress',
+                },
+                {
+                'key': 'samsung_tvremote_tvmodel',
+                'value': 'UE55C8000',
+                'description': 'Your tvs modelnumber',
+                },
+        ]
+    },
+    {
         'name': 'transmission',
         'label': 'Transmission',
         'description': 'Shows you information about your Transmission downloads.',

@@ -70,6 +70,7 @@ def import_modules():
     import modules.sms
     import mobile
     import modules.ipcamera
+    import modules.samsung_tvremote
 
 
 @app.teardown_request

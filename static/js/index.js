@@ -2931,6 +2931,13 @@ $(document).on('keyup', '#sms #sms_message', function() {
       });
   });
 
+  // samsung tvremote
+  $(document).on('click', '#samsung_tvremote .button', function() {
+    $.get(WEBROOT + '/xhr/samsung_tvremote/send/' + $(this).data('xhr_url'), function(data){
+      $('#samsung_tvremote').replaceWith(data);
+    });
+  });
+  
   // Headphones
   $(document).on('click', '#headphones .get', function() {
     $.get(WEBROOT + '/xhr/headphones' + $(this).data('url'), function(data){
