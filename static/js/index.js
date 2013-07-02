@@ -2254,7 +2254,7 @@ $(document).ready(function() {
     var command = false;
     var id = $(this).attr('id');
     if (id === 'resolution'){
-      command = 'camera_settings/resolution_' + alternate_text.toLowerCase();
+      command = 'camera_settings/resolution_' + text.toLowerCase();
     } else if (id === 'vp') {
       if (text === 'VP') {
         command = 'control_base/vertical_patrol';
@@ -2902,6 +2902,34 @@ $(document).ready(function() {
   });
 
   check_for_update();
+  
+  //sms module
+  
+// Catches the chars in sms_message and writes it to charcount
+$(document).on('keyup', '#sms #sms_message', function() {
+  var onemessage = 160;
+  var len = $(this).val().length;
+  var numberoftext = (len / onemessage);
+  var total = Math.ceil(numberoftext)
+    if (len == len) {
+    $('#charcount').text(len + '/' + total);
+  }
+});
+  
+// catch input of "form" sending dict to script, update page ard remove div.
+  $(document).on('click', '#sms #sendsms', function() {
+      var res = $('#sms #sms_res').val();
+      var mmsg = $('#sms #sms_message').val();
+      var s = res + '/' + mmsg;
+      var dict = {
+      res: res,
+      mmsg: mmsg
+        };
+        $.post(WEBROOT + '/xhr/sms/send/', dict, function(data){
+        $('#sms').replaceWith(data);
+        $('.notice').delay(5000).fadeOut();
+      });
+  });
 
   // Headphones
   $(document).on('click', '#headphones .get', function() {
@@ -3110,5 +3138,3 @@ $(document).ready(function() {
       e.preventDefault();
     }
   });});
-
-  // Stared here, if its not working copy the shit higher.
