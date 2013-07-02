@@ -2254,7 +2254,7 @@ $(document).ready(function() {
     var command = false;
     var id = $(this).attr('id');
     if (id === 'resolution'){
-      command = 'camera_settings/resolution_' + text.toLowerCase();
+      command = 'camera_settings/resolution_' + alternate_text.toLowerCase();
     } else if (id === 'vp') {
       if (text === 'VP') {
         command = 'control_base/vertical_patrol';
@@ -3138,3 +3138,5 @@ $(document).on('keyup', '#sms #sms_message', function() {
       e.preventDefault();
     }
   });});
+
+  // Stared here, if its not working copy the shit higher.
