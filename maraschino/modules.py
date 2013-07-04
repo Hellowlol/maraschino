@@ -545,20 +545,20 @@ AVAILABLE_MODULES = [
         ]
     },
     {
-        'name': 'sms',
-        'label': 'SMS',
-        'description': 'Send texts from Maraschino',
+        'name': 'telenor_sms',
+        'label': 'Telenor SMS',
+        'description': 'Send texts from Maraschino if your a Telenor NO/DK customer',
         'static': True,
         'poll': 60,
         'delay': 0,
         'settings': [
                 {
-                'key': 'sms_username',
+                'key': 'telenor_sms_username',
                 'value': '',
                 'description': 'Phone number',
                 },
                 {
-                'key': 'sms_password',
+                'key': 'telenor_sms_password',
                 'value': '',
                 'description': 'SMS password',
                 },

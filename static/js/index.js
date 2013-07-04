@@ -2906,7 +2906,7 @@ $(document).ready(function() {
   //sms module
   
 // Catches the chars in sms_message and writes it to charcount
-$(document).on('keyup', '#sms #sms_message', function() {
+$(document).on('keyup', '#telenor_sms #sms_message', function() {
   var onemessage = 160;
   var len = $(this).val().length;
   var numberoftext = (len / onemessage);
@@ -2917,16 +2917,16 @@ $(document).on('keyup', '#sms #sms_message', function() {
 });
   
 // catch input of "form" sending dict to script, update page ard remove div.
-  $(document).on('click', '#sms #sendsms', function() {
-      var res = $('#sms #sms_res').val();
-      var mmsg = $('#sms #sms_message').val();
+  $(document).on('click', '#telenor_sms #sendsms', function() {
+      var res = $('#telenor_sms #sms_res').val();
+      var mmsg = $('#telenor_sms #sms_message').val();
       var s = res + '/' + mmsg;
       var dict = {
       res: res,
       mmsg: mmsg
         };
-        $.post(WEBROOT + '/xhr/sms/send/', dict, function(data){
-        $('#sms').replaceWith(data);
+        $.post(WEBROOT + '/xhr/telenor_sms/send/', dict, function(data){
+        $('#telenor_sms').replaceWith(data);
         $('.notice').delay(5000).fadeOut();
       });
   });

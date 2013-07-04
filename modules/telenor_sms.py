@@ -8,10 +8,10 @@ from maraschino.tools import *
 from maraschino import *
 
 
-@app.route('/xhr/sms/send/', methods=['post', 'get'])
+@app.route('/xhr/telenor_sms/send/', methods=['post', 'get'])
 def sms_send():
-    username = get_setting_value('sms_username')
-    pwd = get_setting_value('sms_password')
+    username = get_setting_value('telenor_sms_username')
+    pwd = get_setting_value('telenor_sms_password')
     input = request.form
     recipient = input['res']
     msg = input['mmsg']
@@ -32,6 +32,6 @@ def sms_send():
     except:
         result = "EVERYTHING failed"
     
-    return render_template('sms.html', 
+    return render_template('telenor_sms.html', 
         result = result,
         status = status)
