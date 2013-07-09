@@ -7,13 +7,13 @@ from maraschino.models import Application
 from maraschino.database import db_session
 
 def m_name():
-    if get_setting_value('app_show_mname') == None:
+    if get_setting_value('applications_show_mname') == None:
         m_name = 'Applications'
     else:
-        m_name = get_setting_value('app_show_mname')
+        m_name = get_setting_value('applications_show_mname')
     return m_name
 
-@app.route('/xhr/applications')
+@app.route('/xhr/applications/')
 @requires_auth
 def xhr_applications():
     applications = Application.query.order_by(Application.position)
