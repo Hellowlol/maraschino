@@ -8,7 +8,7 @@ import base64
 
 def m_name():
     if get_setting_value('couchpotato_show_mname') == None:
-        m_name = 'couchpotato'
+        m_name = 'Couchpotato'
     else:
         m_name = get_setting_value('couchpotato_show_mname')
     return m_name

@@ -14,7 +14,7 @@ from maraschino import logger
 
 def m_name():
     if get_setting_value('sabnzbd_show_mname') == None:
-        m_name = 'Sabnzbd+'
+        m_name = 'SaBnzbd+'
     else:
         m_name = get_setting_value('sabnzbd_show_mname')
     return m_name
@@ -116,7 +116,7 @@ def xhr_sabnzbd(queue_status='hide'):
         message = 'There was a problem reaching SabNZBd.'
 
     return render_template('sabnzbd/queue.html',
-        renamed_module=m_name(),
+        m_name=m_name(),
         sabnzbd=sabnzbd,
         item=downloading,
         download_speed=download_speed,
