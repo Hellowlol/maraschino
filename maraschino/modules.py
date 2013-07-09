@@ -35,6 +35,11 @@ AVAILABLE_MODULES = [
         'delay': 0,
         'settings': [
             {
+                'key':'app_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
+            {
                 'key': 'app_new_tab',
                 'value': '0',
                 'description': 'Open application in new tab.',
@@ -50,6 +55,11 @@ AVAILABLE_MODULES = [
         'poll': 0,
         'delay': 0,
         'settings': [
+            {
+                'key':'couchpotato_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
             {
                 'key': 'couchpotato_api',
                 'value': '',
@@ -103,6 +113,11 @@ AVAILABLE_MODULES = [
         'delay': 0,
         'settings': [
             {
+                'key':'diskspace_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
+            {
                 'key': 'show_grouped_disks',
                 'value': '0',
                 'description': 'Show grouped disks outside of group.',
@@ -118,6 +133,11 @@ AVAILABLE_MODULES = [
         'poll': 0,
         'delay': 0,
         'settings': [
+            {
+                'key':'headphones_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
             {
                 'key': 'headphones_host',
                 'value': '',
@@ -216,6 +236,11 @@ AVAILABLE_MODULES = [
         'poll': 10,
         'delay': 0,
         'settings': [
+            {
+                'key':'nzbget_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
             {
                 'key': 'nzbget_host',
                 'value': '',
@@ -365,6 +390,11 @@ AVAILABLE_MODULES = [
         'delay': 0,
         'settings': [
             {
+                'key':'sabnzbd_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
+            {
                 'key': 'sabnzbd_host',
                 'value': '',
                 'description': 'Hostname',
@@ -513,6 +543,11 @@ AVAILABLE_MODULES = [
         'delay': 0,
         'settings': [
                 {
+                'key': 'ipcamera_show_mname',
+                'value':'',
+                'description': 'Module name',
+                },
+                {
                 'key': 'ipcamera_ip',
                 'value': '',
                 'description': 'Ip',
@@ -553,6 +588,11 @@ AVAILABLE_MODULES = [
         'delay': 0,
         'settings': [
                 {
+                'key':'transmission_show_mname',
+                'value': '',
+                'description': 'Module name',
+                },
+                {
                 'key': 'transmission_ip',
                 'value': '',
                 'description': 'Transmission Hostname',
@@ -589,6 +629,11 @@ AVAILABLE_MODULES = [
         'delay': 0,
         'settings': [
                 {
+                'key':'utorrent_show_mname',
+                'value': '',
+                'description': 'Module name',
+                },
+                {
                 'key': 'utorrent_ip',
                 'value': '',
                 'description': 'uTorrent Hostname',
@@ -618,6 +663,11 @@ AVAILABLE_MODULES = [
         'poll': 0,
         'delay': 0,
         'settings': [
+            {
+                'key':'sickbeard_show_mname',
+                'value': '',
+                'description': 'Module name',
+            },
             {
                 'key': 'sickbeard_api',
                 'value': '',

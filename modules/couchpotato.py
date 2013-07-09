@@ -6,6 +6,12 @@ import urllib2
 import StringIO
 import base64
 
+def m_name():
+    if get_setting_value('couchpotato_show_mname') == None:
+        m_name = 'couchpotato'
+    else:
+        m_name = get_setting_value('couchpotato_show_mname')
+    return m_name
 
 def couchpotato_http():
     if get_setting_value('couchpotato_https') == '1':
@@ -122,6 +128,7 @@ def xhr_couchpotato(status='active'):
         return cp_search('There are no movies in your wanted list.')
 
     return render_template(template,
+        m_name=m_name(),
         url=couchpotato_url(),
         couchpotato=couchpotato,
         compact_view=get_setting_value('couchpotato_compact') == '1',

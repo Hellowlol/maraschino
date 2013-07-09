@@ -6,6 +6,13 @@ from maraschino.tools import *
 from maraschino.models import Application
 from maraschino.database import db_session
 
+def m_name():
+    if get_setting_value('app_show_mname') == None:
+        m_name = 'Applications'
+    else:
+        m_name = get_setting_value('app_show_mname')
+    return m_name
+
 @app.route('/xhr/applications')
 @requires_auth
 def xhr_applications():
@@ -13,6 +20,7 @@ def xhr_applications():
     new_tab = get_setting_value('app_new_tab') == '1'
 
     return render_template('applications.html',
+        m_name = m_name(),
         applications = applications,
         new_tab = new_tab,
     )
