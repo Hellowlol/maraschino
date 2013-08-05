@@ -16,7 +16,7 @@ from maraschino import logger
 from maraschino.tools import *
 
 def qbt_http():
-    if get_setting_value('qbittorrent_https') == '1' :
+    if get_setting_value('qbittorrent_https') == '1':
         return 'https://'
     else:
         return 'http://'
@@ -37,6 +37,7 @@ def qbt_url():
     return qbt_http() + url
 
 #Gets access the torrent list and start the rest.
+@requires_auth
 @app.route('/xhr/qbittorrent/') 
 def get_torrent_list():
     url = qbt_url()
@@ -76,14 +77,14 @@ def get_torrent_list():
                 g_global_downspeed = g_global_downspeed(),
                 g_global_upspeed = g_global_upspeed())
                 
-        if qbittorrent: # there are items, decoded
-            for item in qbittorrent: # loop them
-                if item["state"] in q_in_pause:
+        
+        if qbittorrent:
+            for item in qbittorrent:
+                if item['state'] in q_in_pause:
                     downloadstatus = 'resumeall'
-                    #break
+                    
                 else:
                     downloadstatus = 'pauseall'
-                    #break
                 
                 return render_template('qbittorrent/qbittorrent.html',
                     result = result,
@@ -96,7 +97,7 @@ def get_torrent_list():
                     g_global_upspeed = g_global_upspeed(),
                     q_in_pause = q_in_pause)
                     
-    else: # no contact. means error
+    else:
         message = 'Problem reaching qBittorrent'
         logger.log('qbittorrent :: There is a problem reaching qBittorrent', 'INFO')
         return render_template('qbittorrent/qbittorrent.html',
@@ -113,11 +114,12 @@ def transfer_info():
         
     except Exception as e:
         qbittorrent_exception(e)
-        print "Transfer info  feiled."# check this one.
-        tra_info = "Didnt get the speed"
+        tra_info = 'ERROR'
+        
     return tra_info
 
 # singel torrent resume, pause and delete
+@requires_auth
 @app.route('/xhr/qbittorrent/command/<state>/<hash>/<name>/')
 def command(state, hash, name):
     data = {}
@@ -144,6 +146,7 @@ def command(state, hash, name):
     return jsonify({'status': 'true'})
 
 # sets speed limit up and down
+@requires_auth
 @app.route('/xhr/qbittorrent/speedlimit/<type>/<int:speed>/')
 def qbittorrent_set_speedlimit(type, speed):
     speed2 = speed
@@ -174,6 +177,7 @@ def qbittorrent_set_speedlimit(type, speed):
     return jsonify({'status': 'true'})
 
 # This one pause/resumes all
+@requires_auth
 @app.route('/xhr/qbittorrent/command/<type>/')
 def pause_resume_all(type):
     url = qbt_url() + 'command/' + type

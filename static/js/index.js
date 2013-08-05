@@ -1217,6 +1217,7 @@ $(document).ready(function() {
   
   /********* Start of qbittorrent *************/
   
+  // Pause/resume torrent
  $(document).on('click', '#qbittorrent .inner .queue table tr td.pause', function(){
     var id = $(this).parent('tr').attr('id');
     var state = $(this).parent('tr').data('action');
@@ -1228,10 +1229,11 @@ $(document).ready(function() {
       }
     })
     .error(function(){
-      get_module('qbittorrent');
+      popup_message('Problem reaching Maraschino on /xhr/qbittorrent/command/<state>/<id>/<name>');
     });
   });
   
+  // Delete torrent
    $(document).on('click', '#qbittorrent .inner .queue table tr td.delete', function(){
     var id = $(this).parent('tr').attr('id');
     var state = $(this).data('action');
@@ -1243,12 +1245,11 @@ $(document).ready(function() {
       }
     })
     .error(function(){
-        alert('Error, couldnt delete ' + id)
-        get_module('qbittorrent');
+        popup_message('Problem reaching Maraschino on /xhr/qbittorrent/command/<state>/<id>/<name>');
     });
   });
 
- 
+ // Set global up and downspeed
 $(document).on('keypress', '#qbittorrent .inner .speed input', function(e){
     if(e.which == 13){
       var type = $(this).data('action');
@@ -1259,7 +1260,7 @@ $(document).on('keypress', '#qbittorrent .inner .speed input', function(e){
         }
       })
       .error(function(){
-        popup_message('Problem reaching Maraschino on /xhr/qbittorrent/speedlimit/');
+        popup_message('Problem reaching Maraschino on /xhr/qbittorrent/speedlimit/<var>/');
       });
     }
   });
