@@ -44,8 +44,8 @@ def sendKeyz(key):
         chr(len(msg)) + chr(0x00) + msg
     new.send(pkt)
     new.close()
-    time.sleep(0.1)
+    #time.sleep(0.1)
   
     logger.log('Sending key :: %s' % key, 'INFO')
-    #print key
-    return render_template('samsung_tvremote.html', key=key)
+    
+    return render_template('samsung_tvremote.html')#, key=key)

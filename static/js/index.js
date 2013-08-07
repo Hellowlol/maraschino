@@ -2938,6 +2938,13 @@ $(document).on('keyup', '#sms #sms_message', function() {
     });
   });
   
+  $(document).on('click', '#samsung_tvremote .send', function() {
+      //var msg = $('#samsung_tvremote #msg').val();
+      $.get(WEBROOT + '/xhr/samsung_tvremote/send/' + $('#samsung_tvremote #msg').val() , function(data){
+        $('#samsung_tvremote').replaceWith(data);
+      });
+  });
+  
   // Headphones
   $(document).on('click', '#headphones .get', function() {
     $.get(WEBROOT + '/xhr/headphones' + $(this).data('url'), function(data){
