@@ -2232,6 +2232,20 @@ $(document).ready(function() {
   });
   /*****END WEATHER CLOCK*****/
 
+    // samsung tvremote
+  $(document).on('click', '#samsung_tvremote .button', function() {
+    $.get(WEBROOT + '/xhr/samsung_tvremote/send/' + $(this).data('xhr_url'), function(data){
+      $('#samsung_tvremote').replaceWith(data);
+    });
+  });
+  
+  $(document).on('click', '#samsung_tvremote .send', function() {
+    $.get(WEBROOT + '/xhr/samsung_tvremote/send/'+ $('#msg').val() , function(data) {
+        $('#samsung_tvremote').replaceWith(data);
+    });
+});
+  
+  
   /*****START IPCamera*****/
   $(document).on('click', '#ipcamera .menu li', function () {
     var text = $(this).text();

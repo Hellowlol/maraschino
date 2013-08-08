@@ -441,6 +441,36 @@ AVAILABLE_MODULES = [
         ]
     },
     {
+        'name': 'samsung_tvremote',
+        'label': 'Samsung tvremote',
+        'description': 'Control your Samsung tv',
+        'static': True,
+        'poll': 0,
+        'delay': 0,
+        'settings' : [
+            {
+            'key': 'samsung_tvremote_tvip',
+            'value': '',
+            'description': 'Your TVs ip',
+            },
+            {
+            'key': 'samsung_tvremote_myip',
+            'value': 'localhost',
+            'description': 'Maraschinos ip',
+            },
+            {
+            'key': 'samsung_tvremote_mymac',
+            'value': '',
+            'description': 'Maraschinos mac',
+            },
+            {
+            'key': 'samsung_tvremote_tvmodel',
+            'value': 'UEC8000',
+            'description': 'Your TVs model number',
+            },
+        ]
+    },
+    {
         'name': 'traktplus',
         'label': 'trakt.tv',
         'description': 'trakt.tv module',
