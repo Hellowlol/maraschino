@@ -2314,7 +2314,7 @@ $(document).ready(function() {
       }
     });
   });
-  /*****END IPCamera*****/
+/*****END IPCamera*****/
 
   function add_loading_gif(element) {
     $(element).append('<img src="' + WEBROOT + '/static/images/xhrloading.gif" class="xhrloading" width="18" height="15" alt="Loading...">');
