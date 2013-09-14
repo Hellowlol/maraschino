@@ -57,6 +57,7 @@ def get_torrent_list():
     qbittorrent = None
     message = None
     result = None
+    cp = 0
     
     try:
         
@@ -79,14 +80,17 @@ def get_torrent_list():
                 
         
         if qbittorrent:
+            total_torrents = len(qbittorrent)
             for item in qbittorrent:
                 if item['state'] in q_in_pause:
-                    downloadstatus = 'resumeall'
+                    cp += 1
                     
-                else:
-                    downloadstatus = 'pauseall'
+            if cp == total_torrents:
+                downloadstatus = 'resumeall'
+            else: 
+                downloadstatus = 'pauseall'
                 
-                return render_template('qbittorrent/qbittorrent.html',
+            return render_template('qbittorrent/qbittorrent.html',
                     result = result,
                     qbittorrent = qbittorrent, 
                     speed = transfer_info(), 
@@ -98,7 +102,6 @@ def get_torrent_list():
                     q_in_pause = q_in_pause)
                     
     else:
-        message = 'Problem reaching qBittorrent'
         logger.log('qbittorrent :: There is a problem reaching qBittorrent', 'INFO')
         return render_template('qbittorrent/qbittorrent.html',
             result = result,
@@ -129,7 +132,7 @@ def command(state, hash, name):
         data['hash']  = hash
     
     data = urllib.urlencode(data)
-    url = qbt_url() + 'command/' + state # 
+    url = qbt_url() + 'command/' + state
     
     try:
         result = urllib2.urlopen(url, data)
@@ -153,7 +156,7 @@ def qbittorrent_set_speedlimit(type, speed):
     if speed == 0:
         speed = 0
     else:
-        speed = speed * 1024
+        speed *= 1024
     
     url = qbt_url() + 'command/' + type
     
